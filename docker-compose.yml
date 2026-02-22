@@ -7,7 +7,7 @@ services:
       # --- CHANGE: Set your database name ---
       MYSQL_DATABASE: bankapp_db
       # --- CHANGE: Set your root password ---
-      MYSQL_ROOT_PASSWORD: Ajit@123 
+      MYSQL_ROOT_PASSWORD: kcslYedgdEzrExvFbFeZwQZqwwffKjbI
     ports:
       - "3306:3306"
     volumes:
@@ -25,7 +25,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/bank_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       SPRING_DATASOURCE_USERNAME: root
       # --- CHANGE: Must match the MYSQL_ROOT_PASSWORD above ---
-      SPRING_DATASOURCE_PASSWORD: Ajit@123
+      SPRING_DATASOURCE_PASSWORD: kcslYedgdEzrExvFbFeZwQZqwwffKjbI
       SPRING_JPA_HIBERNATE_DDL_AUTO: update
 
 volumes:
