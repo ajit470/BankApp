@@ -11,5 +11,5 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 # Copy the JAR built in the first step
 COPY --from=build /app/target/*.jar bankapp.jar
-EXPOSE 8080
+EXPOSE 8081
 ENTRYPOINT ["java", "-jar", "bankapp.jar"]
