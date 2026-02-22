@@ -1,0 +1,210 @@
+/* =========================================================
+   app.css  (Light Theme + Premium Glass UI)
+   Works with Bootstrap 5 (responsive + attractive)
+   ========================================================= */
+
+/* Optional premium font (single CSS file approach) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* ---------- Theme Variables ---------- */
+:root{
+  --bg: #f6f9ff;
+  --bg2:#eef4ff;
+
+  --surface: rgba(255,255,255,.72);     /* glass */
+  --surface-solid: #ffffff;
+  --border: rgba(15,23,42,.10);
+
+  --text:#0f172a;
+  --muted:#64748b;
+
+  --primary:#2563eb;
+  --primary2:#1d4ed8;
+  --success:#16a34a;
+  --danger:#dc2626;
+
+  --radius: 18px;
+  --radius-sm: 14px;
+
+  --shadow: 0 18px 45px rgba(2,6,23,.12);
+  --shadow-sm: 0 10px 22px rgba(2,6,23,.10);
+
+  --ring: 0 0 0 .25rem rgba(37,99,235,.18);
+}
+
+/* ---------- Base ---------- */
+html, body{ height:100%; }
+
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1100px 650px at 15% 5%, rgba(37,99,235,.22), transparent 55%),
+    radial-gradient(900px 520px at 92% 10%, rgba(22,163,74,.14), transparent 60%),
+    radial-gradient(700px 480px at 55% 110%, rgba(29,78,216,.10), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 45%, #f8fafc 100%);
+}
+
+/* comfortable spacing on mobile */
+.container, .container-fluid{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+a{ text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+.text-muted{ color: var(--muted) !important; }
+
+/* ---------- Navbar (upgrade Bootstrap navbars) ---------- */
+.navbar{
+  border-bottom: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 16px 35px rgba(2,6,23,.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar.bg-dark{
+  background: linear-gradient(90deg, #0b1220 0%, #0f1b35 55%, #111a2e 100%) !important;
+}
+.navbar.bg-primary{
+  background: linear-gradient(90deg, var(--primary2) 0%, var(--primary) 55%, #60a5fa 130%) !important;
+}
+
+.navbar .navbar-brand{
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+/* ---------- Page Titles ---------- */
+.app-page-title{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+/* ---------- Cards (glass + lift) ---------- */
+.card{
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.card .card-header{
+  background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.65));
+  border-bottom: 1px solid rgba(15,23,42,.08);
+}
+
+.card .card-body{ padding: 1.25rem; }
+
+@media (max-width: 576px){
+  .card .card-body{ padding: 1rem; }
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  box-shadow: var(--shadow);
+  background: rgba(255,255,255,.82);
+}
+@media (prefers-reduced-motion: reduce){
+  .card:hover{ transform:none; }
+}
+
+/* ---------- Buttons (premium gradient) ---------- */
+.btn{
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.btn-primary{
+  border: none;
+  background: linear-gradient(180deg, var(--primary), var(--primary2));
+  box-shadow: 0 10px 18px rgba(37,99,235,.18);
+}
+.btn-primary:hover{ filter: brightness(.98); }
+
+.btn-success{
+  border: none;
+  background: linear-gradient(180deg, #22c55e, var(--success));
+  box-shadow: 0 10px 18px rgba(34,197,94,.14);
+}
+
+.btn-danger{
+  border: none;
+  background: linear-gradient(180deg, #ef4444, var(--danger));
+  box-shadow: 0 10px 18px rgba(239,68,68,.12);
+}
+
+/* outline buttons look cleaner */
+.btn-outline-secondary, .btn-outline-primary, .btn-outline-light{
+  border-width: 1px;
+}
+
+/* ---------- Forms ---------- */
+.form-label{
+  font-weight: 700;
+  color: #334155;
+}
+
+.form-control, .form-select, textarea.form-control{
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(15,23,42,.14);
+  background: rgba(255,255,255,.92);
+  padding: .72rem .95rem;
+}
+
+.form-control:focus, .form-select:focus, textarea.form-control:focus{
+  border-color: rgba(37,99,235,.55);
+  box-shadow: var(--ring) !important;
+}
+
+.text-danger.small{
+  font-weight: 700;
+}
+
+/* ---------- Tables ---------- */
+.table{
+  border-color: rgba(15,23,42,.10);
+}
+
+.table thead th{
+  background: linear-gradient(180deg, rgba(248,250,252,1), rgba(241,245,249,1));
+  color: #334155;
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  border-bottom: 1px solid rgba(15,23,42,.10) !important;
+}
+
+.table tbody tr{
+  transition: background .15s ease;
+}
+.table tbody tr:hover{
+  background: rgba(37,99,235,.05);
+}
+
+/* ---------- Badges / Alerts ---------- */
+.badge{
+  border-radius: 999px;
+  padding: .48em .75em;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.alert{
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(15,23,42,.10);
+}
+
+/* ---------- Nice "panel" helper (optional) ---------- */
+.app-panel{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(255,255,255,.30);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}

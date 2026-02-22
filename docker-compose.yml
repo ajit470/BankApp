@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: bank_db
+    restart: always
+    environment:
+      # --- CHANGE: Set your database name ---
+      MYSQL_DATABASE: bankapp_db
+      # --- CHANGE: Set your root password ---
+      MYSQL_ROOT_PASSWORD: Ajit@123 
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: bank_app
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    environment:
+      # 'db' matches the service name above
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/bank_db?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      # --- CHANGE: Must match the MYSQL_ROOT_PASSWORD above ---
+      SPRING_DATASOURCE_PASSWORD: Ajit@123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+volumes:
+  db_data:
